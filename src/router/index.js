@@ -7,8 +7,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
       component: r => require.ensure([], () => r(require('../page/index')), 'index')
+    },
+    {
+      path: '/question',
+      component: r => require.ensure([], () => r(require('../page/question')), 'question')
+    },
+    {
+      path: '/show',
+      component: r => require.ensure([], () => r(require('../page/show')), 'show')
     }
   ]
 })
