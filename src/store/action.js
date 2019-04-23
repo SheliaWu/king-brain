@@ -1,9 +1,12 @@
 export default {
   addNum ({commit, state}, id) {
-    commit('PUSH_ANSWER', id)
-    if (state.itemNum < state.itemDetail.length) {
+    if (state.itemNum < state.questions.length) {
+      commit('PUSH_ANSWER', id)
       commit('ADD_ITEMNUM', 1)
       commit('START_TIMER')
+    } else {
+      this.commit('PUSH_ANSWER', null)
+      commit('SHOW_RESULT')
     }
   },
   initial ({commit}) {

@@ -1,11 +1,11 @@
 <template>
   <div class="item">
     <div class="timer">{{seconds}}</div>
-    <div class="title">{{questions[itemNum-1].question}}</div>
+    <div class="title">{{itemNum}}.{{questions[itemNum-1].question}}</div>
     <div class="list">
       <ul>
         <li v-for="(item, index) in questions[itemNum-1].items" @click="choosed(index)" v-bind:key="index" class="item_list">
-          <span class="option_style" v-bind:class="{'has_choosed':choosedNum==index}">{{chooseType(index)}}</span>
+          <span class="option_style" v-bind:class="{'has_choosed':choosedId==index}">{{chooseType(index)}}</span>
           <span class="option_detail">{{item}}</span>
         </li>
       </ul>
@@ -15,14 +15,13 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { clearInterval } from 'timers';
+
 export default {
   name: "item",
   data () {
     return {
       itemId: null,
-      choosedId: null,
-      choosedNum: null
+      choosedId: null
     }
   },
   created () {
@@ -30,8 +29,8 @@ export default {
   computed: mapState([
     'itemNum',
     'questions',
-    'timer',
-    'seconds'
+    'seconds',
+    'showResult'
   ]),
   methods: {
     ...mapActions([
@@ -39,8 +38,8 @@ export default {
       'initial'
     ]),
     next () {
-      this.choosedNum = null
       this.addNum(this.choosedId)
+      this.choosedId = null
     },
     chooseType: type => {
       switch (type) {
@@ -50,16 +49,23 @@ export default {
         case 3: return 'D';
       }
     },
-    choosed (type, id) {
-      this.choosedNum = type
+    choosed (id) {
       this.choosedId = id
+      setTimeout(() => {
+        this.next()
+      }, 500)
     },
-    complete () {
-      this.addNum(this.choosedId)
-      clearInterval(this.timer)
-      this.$router.push('show')
+    show () {
+      if(this.showResult){
+        this.$router.push('show')
+      }  
     }
-  }   
+  },
+  watch:{
+    showResult(){
+      this.show()
+    }
+  }  
 }
 </script>
 <style lang="less">

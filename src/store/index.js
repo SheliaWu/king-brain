@@ -10,7 +10,9 @@ const state = {
   timer: '',
   itemNum: 1,
   questions: [],
-  answers: []
+  answers: [],
+  score: 0,
+  showResult: false
 }
 export default new Vuex.Store({
   state,
