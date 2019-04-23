@@ -12,6 +12,7 @@ export default {
     item
   },
   created () {
+    this.$store.commit('START_TIMER')
   }
 }
 </script>

@@ -1,20 +1,17 @@
 var Mock = require('mockjs')
-var fs =  require('fs')
 var Random = Mock.Random
 
-var  arr = []
 const makeQuestions  = function(){
+    let arr = []
     for(let i=0;i<10;i++){
         let question = Random.csentence()
         let items = [Random.cword(2,8),Random.cword(2,8),Random.cword(2,8),Random.cword(2,8)]
-        let answer = Random.integer(0,3)
-        arr.push({"id":i, question, items,  answer})
+        let answer_id = Random.integer(0,3)
+        arr.push({"id":i, question, items,  answer_id})
     }
-
     return {
-        questions:arr
+        data:arr
     }
 }
-
-Mock.mock('','post',makeQuestions)
+Mock.mock('/api/make_question', 'get', makeQuestions)
 

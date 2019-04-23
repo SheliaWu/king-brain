@@ -6,7 +6,9 @@ import actions from './action'
 Vue.use(Vuex)
 
 const state = {
-  itemNum: 0,
+  seconds: 10,
+  timer: '',
+  itemNum: 1,
   questions: [],
   answers: []
 }

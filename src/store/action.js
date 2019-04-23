@@ -3,6 +3,7 @@ export default {
     commit('PUSH_ANSWER', id)
     if (state.itemNum < state.itemDetail.length) {
       commit('ADD_ITEMNUM', 1)
+      commit('START_TIMER')
     }
   },
   initial ({commit}) {

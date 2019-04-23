@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'index',
   data(){
@@ -12,6 +13,13 @@ export default {
     }
   },
   created(){
+    this.initial()
+  },
+  methods: {
+    ...mapActions([
+      'addNum',
+      'initial'
+    ])
   }
 }
 </script>

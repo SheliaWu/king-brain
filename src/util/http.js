@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function get (url, params = {}) {
+export function get (url, params = {}) {
   return new Promise((resolve, reject) => {
     axios.get(url, {
       params: params
@@ -14,7 +14,7 @@ function get (url, params = {}) {
   })
 }
 
-function post (url, data = {}) {
+export function post (url, data = {}) {
   return new Promise((resolve, reject) => {
     axios.post(url, data)
       .then(response => {
