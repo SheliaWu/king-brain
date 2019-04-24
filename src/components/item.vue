@@ -69,22 +69,49 @@ export default {
 }
 </script>
 <style lang="less">
-	.item_list{
-		font-size: 0;
-		margin-top: 0.4rem;
-		width: 10rem;
+	.item{
+    width:90%;
+    height: 40%;
+    position: absolute;
+    top:10%;
+    left: 5%;
+    background: #fff;
+    border-radius: 1rem;
+    padding: 0  0.5rem;
+    box-sizing: border-box;
+    .timer{
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      margin-left: 50%;
+      background:#fff;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      line-height: 2rem;
+    }
+    .title{
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    ul{
+      list-style-type: none;
+      padding: 0;
+      margin: 0.5rem 0;
+    }
+    li{
+      text-align:left;
+    }
 		span{
 			display: inline-block;
-			font-size: 0.6rem;
-			color: #00e;
+			font-size: 0.8rem;
 			vertical-align: middle;
 		}
 		.option_style{
-			height: 0.725rem;
-			width: 0.725rem;
+			height: 0.9rem;
+			width: 0.9rem;
 			border: 1px solid #fff;
 			border-radius: 50%;
-			line-height: 0.725rem;
+			line-height: 0.9rem;
 			text-align: center;
 			margin-right: 0.3rem;
 			font-size: 0.5rem;

@@ -18,12 +18,12 @@ export default {
 </script>
 <style scoped>
 .container{
-	position: absolute;
   width:100%;
   height: 100%;
-	top: 0px;
-	left: 0px;
-  background-color: peachpuff;
+  background:url("../../assets/item2.jpg") no-repeat;
+  background-size:cover;
+  background-position: center;
+
 }
 </style>
 

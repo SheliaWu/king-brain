@@ -50,5 +50,8 @@ export default {
       }
     }
     state.score *= 10
+    let index = Math.floor(state.score / 20) - 1
+    if (index < 0) index = 0
+    state.tip = state.tips[index]
   }
 }

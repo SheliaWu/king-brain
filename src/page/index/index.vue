@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <router-link to="/question" class="startBtn">Start</router-link>
+    <router-link to="/question" class="startBtn">点我开始</router-link>
   </div>
 </template>
 
@@ -27,19 +27,23 @@ export default {
 .index{
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  background: url("./../../assets/bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .startBtn{
   display: block;
-  width: 120px;
-  height: 40px;
+  width: 200px;
+  height: 60px;
   position: absolute;
-  left:calc(50% - 60px);
+  left:calc(50% - 100px);
   bottom: 100px;
   text-decoration: none;
-  line-height: 40px;
+  line-height: 60px;
+  background-color: #5438ea;
+  font-size: 24px;
+  color: #fff;
+  border-radius: 10px;
 }
 </style>
 
